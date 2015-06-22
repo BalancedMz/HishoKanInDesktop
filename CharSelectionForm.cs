@@ -48,7 +48,7 @@ namespace HishoKan_InDeskop
             {
                 ListViewItem lvi = new ListViewItem();
                 lvi.Text = item.Key;
-                lvi.Tag = item.Key;
+                lvi.Tag = item.Value;
                 listView1.Items.Add(lvi);
             }
             listView1.EndUpdate();
@@ -56,9 +56,17 @@ namespace HishoKan_InDeskop
 
         private void btn_Confirm_Click(object sender, EventArgs e)
         {
-            if(listView1.SelectedItems.Count > 0)
-                mw.changeCharacter(listView1.FocusedItem.Tag.ToString());
-            this.Close();
+            if (listView1.SelectedItems.Count > 0)
+            {
+                if (!FileOrganizer.FolderContainsImage(listView1.FocusedItem.Tag.ToString()))
+                {
+                    MessageBox.Show("資料夾中沒有圖片!");
+                    return;
+                }
+                else
+                    mw.changeCharacter(listView1.FocusedItem.Text);
+            }
+            this.Dispose();
         }
 
         private void btn_Cancel_Click(object sender, EventArgs e)

@@ -39,3 +39,6 @@ D:\新增資料夾\HishoKan_InDeskop\HishoKan_InDeskop\obj\Debug\HishoKan_InDesk
 D:\新增資料夾\HishoKan_InDeskop\HishoKan_InDeskop\obj\Debug\HishoKan_InDeskop.csproj.GenerateResource.Cache
 D:\新增資料夾\HishoKan_InDeskop\HishoKan_InDeskop\obj\Debug\HishoKan_InDeskop.CharSelectionForm.resources
 D:\新增資料夾\HishoKan_InDeskop\HishoKan_InDeskop\obj\Debug\HishoKan_InDeskop.SettingForm.resources
+D:\新增資料夾\HishoKan_InDeskop 1.01\HishoKan_InDeskop\bin\Debug\HishoKan_InDeskop.exe.config
+D:\新增資料夾\HishoKan_InDeskop 1.01\HishoKan_InDeskop\obj\Debug\HishoKan_InDeskop.exe
+D:\新增資料夾\HishoKan_InDeskop 1.01\HishoKan_InDeskop\obj\Debug\HishoKan_InDeskop.pdb

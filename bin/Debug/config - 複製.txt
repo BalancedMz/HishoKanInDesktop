@@ -1,0 +1,13 @@
+coordinateX = -592
+coordinateY = 0
+volume = 0.3
+charFolder = 暁
+isTopMost = True
+isLaunchVoiceEnabled = True
+isClockVoiceEnabled = True
+isIdleVoiceEnabled = True
+idleInterval = 300000
+isClickVoiceEnabled = True
+maxImgWidth = 1280
+maxImgHeight = 800
+useAnimation = True

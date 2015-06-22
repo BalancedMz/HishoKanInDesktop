@@ -80,7 +80,7 @@ namespace HishoKan_InDeskop
             fo.ChangeCharPath(charFolderName);
             ReadCharConfig(charFolderName, out Parameter.charCgOnLoad);
 
-            if (Parameter.charCgOnLoad == null || Parameter.charCgOnLoad == string.Empty)
+            if (Parameter.charCgOnLoad == null || Parameter.charCgOnLoad == string.Empty || !File.Exists(fo.GetCharFolderPath()))
                 Parameter.charCgOnLoad = fo.GetAllImageName()[0];
 
             loadImage(fo.GetCharFolderPath() + Parameter.charCgOnLoad);
@@ -105,8 +105,9 @@ namespace HishoKan_InDeskop
 
         private void loadImage(string fullImgPath)
         {
-            sp.Children.Clear();
 
+            sp.Children.Clear();
+            
             Image img = new Image();
             BitmapImage src = new BitmapImage();
             src.BeginInit();
@@ -244,23 +245,37 @@ namespace HishoKan_InDeskop
             Parameter.useAnimation = true;
             Parameter.maxImgHeight = 800;
             Parameter.maxImgWidth = 600;
+            Parameter.isClickVoiceEnabled = true;
+            Parameter.isLaunchVoiceEnabled = true;
+            Parameter.isIdleVoiceEnabled = true;
+            Parameter.isClockVoiceEnabled = true;
+
             fo = new FileOrganizer(Parameter.folderNameOnLoad);
             hourClock = new HourClock(player, fo);
             idleClock = new IdleClock(player, fo);
             player.Volume = 0.3;
-            configIdleVoice(false, 10);
+            configIdleVoice(true, 600);
         }
 
         private string ChooseCharFolder()
         {
-            winForm.FolderBrowserDialog fbd = new winForm.FolderBrowserDialog();
-            fbd.Reset();
-            fbd.SelectedPath = Directory.GetCurrentDirectory() + @"\chars";
-            winForm.DialogResult result = fbd.ShowDialog();
-            if (result == winForm.DialogResult.Cancel || result == winForm.DialogResult.Abort)
-                return null;
-            else
-                return System.IO.Path.GetFileName(fbd.SelectedPath);
+            bool ok = false;
+            do
+            {
+                winForm.FolderBrowserDialog fbd = new winForm.FolderBrowserDialog();
+                fbd.Reset();
+                fbd.SelectedPath = Directory.GetCurrentDirectory() + @"\chars";
+                winForm.DialogResult result = fbd.ShowDialog();
+                if (result == winForm.DialogResult.Cancel || result == winForm.DialogResult.Abort)
+                    Application.Current.MainWindow.Close();
+                else if (!FileOrganizer.FolderContainsImage(fbd.SelectedPath))
+                {
+                    MessageBox.Show("此資料夾沒有人物圖片!");
+                }
+                 else return System.IO.Path.GetFileName(fbd.SelectedPath);
+            } while (!ok);
+
+            return null;
         }
 
         private void ApplyConfig(Dictionary<string, string> dict)
@@ -381,10 +396,33 @@ namespace HishoKan_InDeskop
             Parameter.isTopMost = !Parameter.isTopMost;
         }
 
-        public void DragWindow(object sender, MouseButtonEventArgs args)
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            DragMove();
+            //http://stackoverflow.com/questions/2470685/how-do-you-disable-aero-snap-in-an-application
 
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                // this prevents win7 aerosnap
+                if (this.ResizeMode != System.Windows.ResizeMode.NoResize)
+                {
+                    this.ResizeMode = System.Windows.ResizeMode.NoResize;
+                    this.UpdateLayout();
+                }
+
+                DragMove();
+            }
+        }
+
+        private void Window_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (this.ResizeMode == System.Windows.ResizeMode.NoResize)
+            {
+                // restore resize grips
+                this.ResizeMode = System.Windows.ResizeMode.CanResizeWithGrip;
+                this.UpdateLayout();
+            }
+            if (Parameter.isClickVoiceEnabled)
+                player.Play(fo.GetRandomOnClickFile());
         }
 
         private void openContextMenu(object sender, MouseButtonEventArgs args)
@@ -489,5 +527,6 @@ namespace HishoKan_InDeskop
         }
 
         #endregion
+
     }
 }

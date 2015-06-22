@@ -146,11 +146,11 @@ namespace HishoKan_InDeskop
             return startFiles[num];
         }
 
-
-
+        public static bool FolderContainsImage(string folderFullPath)
+        {
+            var ext = new List<string> { ".png", ".jpg" };
+            return Directory.GetFiles(folderFullPath, "*.*")
+                          .Where(s => ext.Any(e => s.EndsWith(e))).Count() > 0;
+        }
     }
 }
-
-/* for future developement :
-http://stackoverflow.com/questions/13301053/directory-getfiles-of-certain-extension
-*/

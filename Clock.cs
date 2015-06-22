@@ -27,7 +27,6 @@ using System.Windows.Forms;
 
 namespace HishoKan_InDeskop
 {
-
     abstract class Clock
     {
         protected int millSecToWait;
@@ -112,7 +111,6 @@ namespace HishoKan_InDeskop
             Start();
         }
 
-        
         protected override void Run()
         {
             while (true)

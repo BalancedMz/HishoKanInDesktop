@@ -1,0 +1,15 @@
+D:\新增資料夾\HishoKan_InDeskop 1.01\HishoKan_InDeskop\bin\Debug\HishoKan_InDeskop.exe.config
+D:\新增資料夾\HishoKan_InDeskop 1.01\HishoKan_InDeskop\bin\Debug\HishoKan_InDeskop.exe
+D:\新增資料夾\HishoKan_InDeskop 1.01\HishoKan_InDeskop\bin\Debug\HishoKan_InDeskop.pdb
+D:\新增資料夾\HishoKan_InDeskop 1.01\HishoKan_InDeskop\obj\Debug\HishoKan_InDeskop 1.01.csprojResolveAssemblyReference.cache
+D:\新增資料夾\HishoKan_InDeskop 1.01\HishoKan_InDeskop\obj\Debug\MainWindow.baml
+D:\新增資料夾\HishoKan_InDeskop 1.01\HishoKan_InDeskop\obj\Debug\MainWindow.g.cs
+D:\新增資料夾\HishoKan_InDeskop 1.01\HishoKan_InDeskop\obj\Debug\App.g.cs
+D:\新增資料夾\HishoKan_InDeskop 1.01\HishoKan_InDeskop\obj\Debug\HishoKan_InDeskop_MarkupCompile.cache
+D:\新增資料夾\HishoKan_InDeskop 1.01\HishoKan_InDeskop\obj\Debug\HishoKan_InDeskop.g.resources
+D:\新增資料夾\HishoKan_InDeskop 1.01\HishoKan_InDeskop\obj\Debug\HishoKan_InDeskop.CharSelectionForm.resources
+D:\新增資料夾\HishoKan_InDeskop 1.01\HishoKan_InDeskop\obj\Debug\HishoKan_InDeskop.Properties.Resources.resources
+D:\新增資料夾\HishoKan_InDeskop 1.01\HishoKan_InDeskop\obj\Debug\HishoKan_InDeskop.SettingForm.resources
+D:\新增資料夾\HishoKan_InDeskop 1.01\HishoKan_InDeskop\obj\Debug\HishoKan_InDeskop 1.01.csproj.GenerateResource.Cache
+D:\新增資料夾\HishoKan_InDeskop 1.01\HishoKan_InDeskop\obj\Debug\HishoKan_InDeskop.exe
+D:\新增資料夾\HishoKan_InDeskop 1.01\HishoKan_InDeskop\obj\Debug\HishoKan_InDeskop.pdb
